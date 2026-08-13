@@ -59,6 +59,9 @@
   .timeline-dot {
     left: 11px !important;
     right: auto !important;
+  .hero-role-title {
+    justify-content: center;
+    min-height: 3.6rem;
   }
 }
 
@@ -71,9 +74,9 @@
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 75%;
-    max-width: 320px;
+    max-width: 300px;
     height: 100vh;
     background: var(--bg-card);
     backdrop-filter: blur(20px);
@@ -83,12 +86,14 @@
     gap: 2rem;
     padding: 2rem;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-    transition: right var(--transition-normal);
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
     z-index: 999;
   }
 
   .nav-links.active {
-    right: 0;
+    transform: translateX(0);
   }
 
   /* Hamburger active state transforms to X */
@@ -124,7 +129,28 @@
   }
 
   .floating-badge {
-    display: none; /* Hide overflow floating badges on smaller screens */
+    display: none;
+  }
+
+  /* Contain background glow blobs on mobile to prevent horizontal viewport shaking */
+  .glow-blob-1 {
+    width: 260px;
+    height: 260px;
+    right: -20px;
+    top: -40px;
+  }
+
+  .glow-blob-2 {
+    width: 240px;
+    height: 240px;
+    left: -20px;
+    bottom: 40px;
+  }
+
+  /* Disable heavy infinite translateY float keyframes on mobile GPUs */
+  .animate-float,
+  .animate-float-slow {
+    animation: none !important;
   }
 }
 

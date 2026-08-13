@@ -70,6 +70,13 @@ html {
   font-size: 16px;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-primary);
@@ -184,6 +191,9 @@ button, input, textarea {
   border-radius: var(--radius-lg);
   transition: all var(--transition-normal);
   position: relative;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .glass-card:hover {
@@ -405,12 +415,16 @@ button, input, textarea {
   font-weight: 600;
   margin-bottom: 1.25rem;
   color: var(--accent-cyan);
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
 }
 
 .typing-container {
   display: inline-block;
   border-right: 3px solid var(--accent-cyan);
   padding-right: 4px;
+  word-break: break-word;
 }
 
 .hero-subtitle {

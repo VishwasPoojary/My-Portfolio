@@ -42,7 +42,18 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
-  window.addEventListener('scroll', handleScroll);
+  let isTicking = false;
+  const onScroll = () => {
+    if (!isTicking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        isTicking = false;
+      });
+      isTicking = true;
+    }
+  };
+
+  window.addEventListener('scroll', onScroll, { passive: true });
 
   // Run once when page loads
   handleScroll();
