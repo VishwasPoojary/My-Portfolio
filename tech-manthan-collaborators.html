@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Collaborators and team members of the Tech Manthan project - Vishwas J and Rangith Shettigar.">
+  <meta name="description" content="Collaborators and team members of the Tech Manthan project - Vishwas J and Ranjith Shettigar.">
   <meta name="author" content="Vishwas J">
 
   <!-- Open Graph Meta Tags -->
-  <meta property="og:title" content="Tech Manthan Project Collaborators">
-  <meta property="og:description" content="Meet the collaborators behind the Tech Manthan project: Vishwas J and Rangith Shettigar.">
+  <meta property="og:title" content="Tech Manthan Project Collaborators | Vishwas J">
+  <meta property="og:description" content="Meet the collaborators behind the Tech Manthan project: Vishwas J and Ranjith Shettigar.">
   <meta property="og:type" content="website">
 
   <title>Tech Manthan Project Collaborators | Vishwas J</title>
@@ -16,89 +16,93 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Stylesheets -->
+  <!-- Cinematic Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
 </head>
 <body>
 
-  <!-- Background Ambient Cyber Glow Blobs -->
-  <div class="glow-blob glow-blob-1"></div>
-  <div class="glow-blob glow-blob-2"></div>
+  <!-- Ambient Cinematic Background Lighting -->
+  <div class="ambient-glow-wrapper" aria-hidden="true">
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+    <div class="ambient-glow-3"></div>
+    <div class="ambient-grid"></div>
+  </div>
 
-  <!-- Header & Navigation Bar -->
-  <header class="header" id="header">
-    <div class="container nav-container">
-      <a href="index.html#home" class="logo">
-        Vishwas <span>J</span>
+  <!-- Floating Glass Navigation -->
+  <header class="header-wrapper" id="header-wrapper">
+    <nav class="nav-container" aria-label="Main Navigation">
+      <a href="index.html#home" class="nav-logo">
+        Vishwas<span>.</span>
       </a>
 
-      <nav class="nav-links" id="nav-links" aria-label="Main Navigation">
+      <div class="nav-links" id="nav-links">
         <a href="index.html#home" class="nav-link">Home</a>
-        <a href="index.html#education" class="nav-link">Education</a>
-        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#about" class="nav-link">About</a>
+        <a href="index.html#skills" class="nav-link">Skills</a>
         <a href="index.html#projects" class="nav-link active">Projects</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
         <a href="index.html#certifications" class="nav-link">Certifications</a>
+        <a href="index.html#education" class="nav-link">Education</a>
         <a href="index.html#contact" class="nav-link">Contact</a>
-      </nav>
+      </div>
 
       <div class="nav-actions">
-        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle Theme">
-          <i class="fa-solid fa-moon"></i>
+        <a href="index.html#contact" class="btn-nav-cta">Let's Talk</a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
-        <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
       </div>
-    </div>
+    </nav>
   </header>
 
   <!-- Main Content -->
-  <main style="padding-top: calc(var(--header-height) + 2rem);">
-    <section class="collaborators section" id="collaborators">
+  <main style="padding-top: calc(var(--nav-height) + 4rem);">
+    <section class="section" id="collaborators">
       <div class="container">
         
         <!-- Back to Projects Button -->
-        <div class="reveal-on-scroll" style="margin-bottom: 2rem;">
+        <div class="reveal-on-scroll" style="margin-bottom: 2.5rem;">
           <a href="index.html#projects" class="btn btn-secondary btn-sm">
-            <i class="fa-solid fa-arrow-left"></i> Back to Projects
+            <i class="fa-solid fa-arrow-left"></i> <span>Back to Projects</span>
           </a>
         </div>
 
         <!-- Section Header -->
         <div class="section-header reveal-on-scroll">
-          <span class="section-subtitle">
-            <i class="fa-solid fa-users"></i> Tech Manthan Team
-          </span>
-          <h2 class="section-title">
-            Tech Manthan Project <span class="gradient-text">Collaborators</span>
-          </h2>
-          <p style="max-width: 640px; margin: 1rem auto 0; color: var(--text-muted); font-size: 1.05rem;">
-            Meet the project collaborators behind the Tech Manthan platform.
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span> Tech Manthan Team
+          </div>
+          <h1 class="section-title">
+            Project <span class="gradient-text">Collaborators</span>
+          </h1>
+          <p class="section-desc">
+            Meet the developers behind the Tech Manthan college technical event platform.
           </p>
         </div>
 
         <!-- Collaborators Grid (Strictly 2 Collaborators) -->
-        <div class="collaborators-grid" style="max-width: 720px; margin: 0 auto;">
+        <div class="collaborators-grid" style="max-width: 780px; margin: 0 auto;">
 
           <!-- Collaborator 1: Ranjith Shettigar -->
-           <article class="collaborator-card glass-card reveal-on-scroll delay-100">
+          <article class="collaborator-card glass-card reveal-on-scroll">
             <div class="collaborator-avatar-wrapper">
-              <img src="images/ranjith.png" alt="Rangith Shettigar Avatar" class="collaborator-avatar">
+              <img src="images/ranjith.png" alt="Ranjith Shettigar Avatar" class="collaborator-avatar">
             </div>
-            <h3 class="collaborator-name">Rangith Shettigar</h3>
+            <h2 class="collaborator-name">Ranjith Shettigar</h2>
             <span class="collaborator-role">Project Lead & Developer</span>
             <p class="collaborator-bio">
-              Third-year BCA student at Dr. B.B. Hegde College leading the development and web architecture for Tech Manthan.
+              Third-year BCA student at Dr. B.B. Hegde College leading the core web architecture and event workflows for Tech Manthan.
             </p>
             <div class="collaborator-socials">
-              <a href="https://github.com/Ranjith-Shettigar" target="_blank" rel="noopener" class="collaborator-social-icon" aria-label="GitHub">
+              <a href="https://github.com/Ranjith-Shettigar" target="_blank" rel="noopener noreferrer" class="collaborator-social-icon" aria-label="GitHub Profile">
                 <i class="fa-brands fa-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/b-ranjith-d-shettigar-05450b378/" target="_blank" rel="noopener" class="collaborator-social-icon" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/b-ranjith-d-shettigar-05450b378/" target="_blank" rel="noopener noreferrer" class="collaborator-social-icon" aria-label="LinkedIn Profile">
                 <i class="fa-brands fa-linkedin-in"></i>
               </a>
               <a href="mailto:ranjithshettygar2006@gmail.com" class="collaborator-social-icon" aria-label="Email">
@@ -108,20 +112,20 @@
           </article>
 
           <!-- Collaborator 2: Vishwas J -->
-          <article class="collaborator-card glass-card reveal-on-scroll">
+          <article class="collaborator-card glass-card reveal-on-scroll delay-100">
             <div class="collaborator-avatar-wrapper">
               <img src="images/vishwas.png" alt="Vishwas J Avatar" class="collaborator-avatar">
             </div>
-            <h3 class="collaborator-name">Vishwas J</h3>
+            <h2 class="collaborator-name">Vishwas J</h2>
             <span class="collaborator-role">Project Collaborator & Developer</span>
             <p class="collaborator-bio">
-              Student collaborator contributing to web design, event workflows, and feature development for Tech Manthan.
+              Student developer contributing to responsive web design, layout optimization, and interactive event user experience for Tech Manthan.
             </p>
             <div class="collaborator-socials">
-              <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener" class="collaborator-social-icon" aria-label="GitHub">
+              <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer" class="collaborator-social-icon" aria-label="GitHub Profile">
                 <i class="fa-brands fa-github"></i>
               </a>
-              <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank" rel="noopener" class="collaborator-social-icon" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank" rel="noopener noreferrer" class="collaborator-social-icon" aria-label="LinkedIn Profile">
                 <i class="fa-brands fa-linkedin-in"></i>
               </a>
               <a href="mailto:vishwaspoojary140@gmail.com" class="collaborator-social-icon" aria-label="Email">
@@ -130,9 +134,6 @@
             </div>
           </article>
 
-          
-         
-
         </div>
       </div>
     </section>
@@ -140,9 +141,9 @@
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-content">
-      <div class="footer-text">
-        &copy; 2026 <strong>Vishwas J & Tech Manthan Team</strong>. Built with HTML, CSS, & JavaScript.
+    <div class="container footer-inner">
+      <div class="footer-copy">
+        &copy; 2026 <strong>Vishwas J & Tech Manthan Team</strong>. All rights reserved.
       </div>
       <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
         <i class="fa-solid fa-arrow-up"></i>

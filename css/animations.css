@@ -1,57 +1,70 @@
 /* ==========================================================================
-   ANIMATIONS.CSS - Motion & Cyber Neon Effects
+   ANIMATIONS.CSS - Cinematic Motion & Ambient Glow Effects
    ========================================================================== */
 
-@keyframes float {
-  0% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-12px) rotate(2deg);
-  }
-  100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-}
-
-@keyframes floatSlow {
-  0% {
-    transform: translateY(0px) scale(1);
-  }
-  50% {
-    transform: translateY(-20px) scale(1.03);
-  }
-  100% {
-    transform: translateY(0px) scale(1);
-  }
-}
-
-@keyframes pulseCyberGlow {
+/* Subtle ambient pulse for background light orbs */
+@keyframes ambientPulse {
   0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
+    opacity: 0.35;
+    transform: scale(1) translate(0, 0);
   }
   50% {
-    opacity: 0.65;
-    transform: scale(1.12);
+    opacity: 0.6;
+    transform: scale(1.1) translate(15px, -15px);
   }
 }
 
+/* Floating portrait or badge animation */
+@keyframes floatGentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Subtle glowing border pulse */
+@keyframes borderGlowPulse {
+  0%, 100% {
+    border-color: rgba(147, 51, 234, 0.25);
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.15);
+  }
+  50% {
+    border-color: rgba(147, 51, 234, 0.55);
+    box-shadow: 0 0 35px rgba(147, 51, 234, 0.3);
+  }
+}
+
+/* Terminal / status blinking cursor */
 @keyframes blinkCursor {
   0%, 100% {
-    border-color: var(--accent-cyan);
+    opacity: 1;
   }
   50% {
-    border-color: transparent;
+    opacity: 0;
   }
 }
 
-/* Scroll Reveal Utility Classes */
+/* Live status indicator pulse */
+@keyframes statusDotPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+/* Scroll reveal utility classes */
 .reveal-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translateY(28px);
+  transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, transform;
 }
 
@@ -61,61 +74,118 @@
 }
 
 .delay-100 { transition-delay: 100ms; }
+.delay-150 { transition-delay: 150ms; }
 .delay-200 { transition-delay: 200ms; }
+.delay-250 { transition-delay: 250ms; }
 .delay-300 { transition-delay: 300ms; }
 .delay-400 { transition-delay: 400ms; }
 
-/* Apply Animations */
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+/* Preloader styles and fade-out */
+.preloader {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #06070a;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2.5rem;
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
 }
 
-.animate-float-slow {
-  animation: floatSlow 7s ease-in-out infinite;
+.preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-.glow-blob {
-  animation: pulseCyberGlow 9s ease-in-out infinite;
+.preloader-ambient {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(147, 51, 234, 0.28) 0%, rgba(99, 102, 241, 0.12) 45%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 1;
 }
 
-.typing-container {
-  animation: blinkCursor 0.8s infinite;
-}
-
-/* Cyber Button Shine */
+/* Button hover shine effect */
 .btn-primary {
   position: relative;
   overflow: hidden;
 }
 
-.btn-primary::before {
+.btn-primary::after {
   content: '';
   position: absolute;
   top: -50%;
-  left: -50%;
-  width: 200%;
+  left: -60%;
+  width: 40%;
   height: 200%;
   background: linear-gradient(
-    60deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.3) 50%,
-    transparent 70%
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.25),
+    transparent
   );
-  transform: rotate(30deg);
-  transition: all 0.6s ease;
-  opacity: 0;
+  transform: rotate(25deg);
+  transition: transform 0.75s ease;
 }
 
-.btn-primary:hover::before {
-  opacity: 1;
-  animation: shinyBtn 1.5s ease-in-out infinite;
+.btn-primary:hover::after {
+  transform: translateX(380%) rotate(25deg);
 }
 
-@keyframes shinyBtn {
+/* Continuous Horizontal Marquee Keyframes */
+@keyframes marqueeScroll {
   0% {
-    transform: translate(-100%, -100%) rotate(30deg);
+    transform: translateX(0);
   }
   100% {
-    transform: translate(100%, 100%) rotate(30deg);
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+@keyframes projectsScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% - 2rem));
+  }
+}
+
+/* Respect user accessibility preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-on-scroll {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .preloader {
+    display: none !important;
+  }
+  .tech-marquee-group,
+  .projects-marquee-group {
+    animation: none !important;
+    transform: none !important;
+  }
+  .tech-marquee-wrapper,
+  .projects-marquee-wrapper {
+    overflow-x: auto !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
   }
 }
