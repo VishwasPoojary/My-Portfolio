@@ -337,8 +337,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
   }
 
-  // Initialize for both Technologies (4 items/set) and Projects (3 items/set)
+  // Initialize for both Technologies (4 items/set) and Projects (4 items/set)
   initInteractiveRowScroll('tech-scroll-wrapper', 'tech-scroll-track', 4, 30);
-  initInteractiveRowScroll('projects-scroll-wrapper', 'projects-scroll-track', 3, 28);
+  initInteractiveRowScroll('projects-scroll-wrapper', 'projects-scroll-track', 4, 28);
 
 });

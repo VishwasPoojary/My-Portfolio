@@ -12,13 +12,12 @@
     margin: 0 auto;
   }
 
-  .hero-ref-container {
-    gap: 3rem;
+  .hero-container-modern {
+    gap: 4.5rem;
   }
 
-  .hero-portrait-wrapper {
-    width: 260px;
-    height: 360px;
+  .hero-frame-wrapper {
+    max-width: 420px;
   }
 
   .about-card-unified {
@@ -30,23 +29,16 @@
    2. Laptops & Small Desktops (max-width: 1200px)
    ========================================================================== */
 @media (max-width: 1200px) {
-  .hero-ref-container {
-    grid-template-columns: 1.1fr 0.8fr 1.1fr;
-    gap: 1.5rem;
+  .hero-container-modern {
+    gap: 2.5rem;
   }
 
-  .hero-portrait-wrapper {
-    width: 220px;
-    height: 320px;
+  .hero-frame-wrapper {
+    max-width: 330px;
   }
 
-  .hero-portrait-ambient-glow {
-    width: 230px;
-    height: 270px;
-  }
-
-  .hero-ref-title {
-    font-size: clamp(2.3rem, 3.8vw, 3.6rem);
+  .hero-name {
+    font-size: clamp(2.4rem, 4.4vw, 3.8rem);
   }
 
   .about-card-unified {
@@ -67,67 +59,54 @@
   }
 
   /* Hero Section: Centered 1-column stack */
-  .hero-ref-container {
+  .hero-container-modern {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2.5rem;
     text-align: center;
+    padding: 1.5rem 0 2.5rem;
   }
 
-  .hero-ref-left {
+  .hero-content-col {
     align-items: center;
     text-align: center;
     order: 1;
   }
 
-  .hero-ref-eyebrow {
-    margin-bottom: 1rem;
+  .hero-status-pill {
+    margin-bottom: 1.25rem;
   }
 
-  .hero-ref-title {
-    font-size: clamp(2.2rem, 5.5vw, 3.2rem);
-    line-height: 1.1;
-    margin-bottom: 0.75rem;
+  .hero-name {
+    font-size: clamp(2.4rem, 6vw, 3.4rem);
   }
 
-  .hero-ref-scroll-wrap {
-    display: none;
+  .hero-headline {
+    font-size: 1.25rem;
+    margin-bottom: 1.25rem;
   }
 
-  .hero-ref-center {
+  .hero-intro {
+    max-width: 480px;
+    margin: 0 auto 1.5rem;
+    text-align: center;
+  }
+
+  .hero-cta-group {
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-social-row {
+    justify-content: center;
+  }
+
+  .hero-visual-col {
     order: 2;
-    margin: 0.5rem auto;
+    margin: 0 auto;
   }
 
-  .hero-portrait-wrapper {
-    width: 200px;
-    height: 280px;
-  }
-
-  .hero-portrait-ambient-glow {
-    width: 210px;
-    height: 250px;
-    filter: blur(35px);
-  }
-
-  .hero-ref-right {
-    order: 3;
-    align-items: center;
-    text-align: center;
-  }
-
-  .hero-ref-desc {
-    max-width: 440px;
-    margin: 0 auto 1.35rem;
-    text-align: center;
-  }
-
-  .hero-ref-actions {
-    justify-content: center;
-    margin-bottom: 1.35rem;
-  }
-
-  .hero-ref-meta {
-    justify-content: center;
+  .hero-frame-wrapper {
+    max-width: 290px;
   }
 
   /* About Section */
@@ -289,27 +268,30 @@
     padding-bottom: 2.25rem;
   }
 
-  .hero-ref-title {
-    font-size: clamp(1.85rem, 6vw, 2.5rem);
+  .hero-name {
+    font-size: clamp(2.1rem, 7vw, 2.75rem);
     line-height: 1.1;
-    margin-bottom: 0.65rem;
+    margin-bottom: 0.5rem;
   }
 
-  .hero-portrait-wrapper {
-    width: 180px;
-    height: 250px;
+  .hero-headline {
+    font-size: 1.15rem;
+    margin-bottom: 1.15rem;
   }
 
-  .hero-portrait-ambient-glow {
-    width: 190px;
-    height: 220px;
-    filter: blur(30px);
+  .hero-frame-wrapper {
+    max-width: 250px;
   }
 
-  .hero-ref-desc {
-    font-size: 0.92rem;
+  .hero-photo-frame {
+    border-radius: 20px;
+    padding: 6px;
+  }
+
+  .hero-intro {
+    font-size: 0.94rem;
     line-height: 1.6;
-    max-width: 380px;
+    max-width: 400px;
     margin-bottom: 1.25rem;
   }
 
@@ -518,22 +500,23 @@
     flex-direction: column;
     width: 100%;
     max-width: 320px;
-    margin: 0 auto 1.25rem;
+    margin: 0 auto 1.35rem;
     gap: 0.65rem;
   }
 
-  .hero-ref-actions .btn {
+  .hero-cta-group .btn {
     width: 100%;
     justify-content: center;
     min-height: 46px;
     font-size: 0.92rem;
   }
 
-  .hero-ref-meta {
+  .hero-social-row {
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
     gap: 0.5rem;
+    justify-content: center;
   }
 }
 
@@ -568,27 +551,31 @@
     padding-bottom: 2rem;
   }
 
-  .hero-ref-title {
-    font-size: clamp(1.6rem, 6.8vw, 2.1rem);
-    line-height: 1.14;
-    margin-bottom: 0.55rem;
+  .hero-name {
+    font-size: clamp(1.9rem, 7.5vw, 2.35rem);
+    line-height: 1.12;
+    margin-bottom: 0.45rem;
   }
 
-  .hero-portrait-wrapper {
-    width: 155px;
-    height: 215px;
+  .hero-headline {
+    font-size: 1.05rem;
+    margin-bottom: 0.95rem;
   }
 
-  .hero-portrait-ambient-glow {
-    width: 160px;
-    height: 190px;
-    filter: blur(25px);
+  .hero-status-pill {
+    font-size: 0.72rem;
+    padding: 0.35rem 0.8rem;
+    margin-bottom: 1rem;
   }
 
-  .hero-ref-desc {
+  .hero-intro {
     font-size: 0.88rem;
     line-height: 1.55;
-    margin-bottom: 1.15rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .hero-frame-wrapper {
+    max-width: 210px;
   }
 
   .social-pill {
@@ -754,20 +741,18 @@
    7. Small Mobile Phones (max-width: 375px)
    ========================================================================== */
 @media (max-width: 375px) {
-  .hero-ref-title {
-    font-size: 1.55rem;
+  .hero-name {
+    font-size: 1.8rem;
     line-height: 1.15;
   }
 
-  .hero-portrait-wrapper {
-    width: 140px;
-    height: 195px;
+  .hero-status-pill {
+    font-size: 0.68rem;
+    padding: 0.3rem 0.75rem;
   }
 
-  .hero-portrait-ambient-glow {
-    width: 145px;
-    height: 170px;
-    filter: blur(20px);
+  .hero-frame-wrapper {
+    max-width: 190px;
   }
 
   .social-pill {
@@ -805,19 +790,13 @@
     padding: 0.45rem 0.75rem;
   }
 
-  .hero-ref-eyebrow-pill {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.55rem;
-  }
-
-  .hero-ref-title {
-    font-size: 1.4rem;
+  .hero-name {
+    font-size: 1.6rem;
     line-height: 1.16;
   }
 
-  .hero-portrait-wrapper {
-    width: 130px;
-    height: 180px;
+  .hero-frame-wrapper {
+    max-width: 170px;
   }
 
   .about-card-unified {

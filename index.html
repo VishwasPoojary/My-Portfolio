@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Vishwas J - 3rd Year BCA Student at Dr. B.B. Hegde First Grade College, Kundapura. Aspiring Software Developer.">
-  <meta name="keywords" content="Vishwas J, BCA Student, Kundapura, Software Developer, Cybersecurity, AdaptIQ, CyberOptimus, Tech Manthan">
+  <meta name="description"
+    content="Portfolio of Vishwas J - 3rd Year BCA Student at Dr. B.B. Hegde First Grade College, Kundapura. Aspiring Software Developer.">
+  <meta name="keywords"
+    content="Vishwas J, BCA Student, Kundapura, Software Developer, Cybersecurity, AdaptIQ, CyberOptimus, Tech Manthan, Quiz Master">
   <meta name="author" content="Vishwas J">
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="Vishwas J | Aspiring Software Developer & BCA Student">
-  <meta property="og:description" content="Portfolio of Vishwas J - Third-year BCA student building responsive web applications and practical software projects.">
+  <meta property="og:description"
+    content="Portfolio of Vishwas J - Third-year BCA student building responsive web applications and practical software projects.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="images/vishwas_hero.png">
 
   <title>Vishwas J | Aspiring Software Developer & BCA Student</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,11 +29,14 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <link rel="stylesheet" href="css/effects.css">
 </head>
+
 <body>
 
   <!-- Ambient Cinematic Background Lighting -->
   <div class="ambient-glow-wrapper" aria-hidden="true">
+    <canvas id="bg-network-canvas" class="bg-network-canvas"></canvas>
     <div class="ambient-glow-1"></div>
     <div class="ambient-glow-2"></div>
     <div class="ambient-glow-3"></div>
@@ -71,61 +81,69 @@
          1. HERO SECTION
          ========================================================================== -->
     <section class="hero section" id="home">
-      <div class="container hero-ref-container">
-        
-        <!-- Left Column: Title & Scroll Cue -->
-        <div class="hero-ref-col hero-ref-left reveal-on-scroll">
-          <div class="hero-ref-eyebrow">
-            <span class="hero-ref-eyebrow-pill">HELLO, I'M <strong>VISHWAS J</strong></span>
+      <div class="container hero-container-modern">
+
+        <!-- Left Column: Content & Actions -->
+        <div class="hero-content-col reveal-on-scroll">
+
+          <!-- Factual Status Pill -->
+          <div class="hero-status-pill">
+            <span class="status-indicator-dot"></span>
+            <span>Currently: BCA Student • Building Projects • Learning Software Development</span>
           </div>
 
-          <h1 class="hero-ref-title">
-            ASPIRING<br>
-            <span class="gradient-text">SOFTWARE DEVELOPER</span>
-          </h1>
+          <!-- Main Visual Focus: Name -->
+          <h1 class="hero-name">Vishwas J</h1>
 
-          <div class="hero-ref-scroll-wrap">
-            <a href="#about" class="hero-ref-scroll" aria-label="Scroll to About Section">
-              <span class="scrub-dot"></span> Explore Portfolio
-            </a>
-          </div>
-        </div>
-
-        <!-- Center Column: Ambient Glow & Seamless Portrait -->
-        <div class="hero-ref-col hero-ref-center reveal-on-scroll delay-100">
-          <div class="hero-portrait-stage">
-            <div class="hero-portrait-ambient-glow"></div>
-            <div class="hero-portrait-wrapper">
-              <img src="images/vishwas_hero.png" alt="Vishwas J" class="hero-portrait-img" width="820" height="1024" fetchpriority="high" loading="eager">
-            </div>
-          </div>
-        </div>
-
-        <!-- Right Column: Bio, CTAs & Socials -->
-        <div class="hero-ref-col hero-ref-right reveal-on-scroll delay-150">
-          <p class="hero-ref-desc">
-            Third-year BCA student building responsive web applications and practical software projects with a strong focus on clean code and computer science fundamentals.
+          <!-- Professional Headline -->
+          <p class="hero-headline">
+            <span class="headline-gradient">Aspiring Software Developer &amp; Cybersecurity Enthusiast</span>
           </p>
 
-          <div class="hero-ref-actions">
+          <!-- Honest Introduction -->
+          <p class="hero-intro">
+            Third-year BCA student building responsive web applications and practical software projects with a strong
+            focus on clean code and computer science fundamentals.
+          </p>
+
+          <!-- Primary & Secondary CTAs -->
+          <div class="hero-cta-group">
             <a href="#projects" class="btn btn-primary btn-pill">
-              <span>View My Work</span>
+              <span>View Projects</span>
+              <i class="fa-solid fa-arrow-right"></i>
             </a>
             <a href="#contact" class="btn btn-secondary btn-pill">
               <span>Contact Me</span>
             </a>
           </div>
 
-          <div class="hero-ref-meta">
-            <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="GitHub Profile">
+          <!-- Authentic Meta & Social Links -->
+          <div class="hero-social-row">
+            <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer" class="social-pill"
+              aria-label="GitHub Profile">
               <i class="fa-brands fa-github"></i> GitHub
             </a>
-            <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank" rel="noopener noreferrer" class="social-pill" aria-label="LinkedIn Profile">
+            <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank" rel="noopener noreferrer"
+              class="social-pill" aria-label="LinkedIn Profile">
               <i class="fa-brands fa-linkedin-in"></i> LinkedIn
             </a>
             <span class="social-pill">
               <i class="fa-solid fa-location-dot" style="color: #c084fc;"></i> Kundapura, India
             </span>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Framed Modern Portrait Stage -->
+        <div class="hero-visual-col reveal-on-scroll delay-100">
+          <div class="hero-frame-wrapper">
+            <div class="hero-frame-ambient-glow"></div>
+            <div class="hero-photo-frame">
+              <div class="hero-frame-corner corner-tl"></div>
+              <div class="hero-frame-corner corner-br"></div>
+              <img src="images/vishwas_profile.png?v=3" alt="Vishwas J - Aspiring Software Developer"
+                class="hero-portrait-img" width="820" height="1024" fetchpriority="high" loading="eager">
+            </div>
           </div>
         </div>
 
@@ -137,7 +155,7 @@
          ========================================================================= -->
     <section class="section about-section" id="about">
       <div class="container">
-        
+
         <div class="about-card-unified glass-card reveal-on-scroll">
           <div class="about-inner-content">
             <div class="eyebrow">
@@ -149,7 +167,9 @@
             </h2>
 
             <p class="about-ref-desc">
-              Third-year BCA student focused on software development, web technologies, and cybersecurity fundamentals. I enjoy learning by building practical projects and improving my understanding of programming and computer science.
+              Third-year BCA student focused on software development, web technologies, and cybersecurity fundamentals.
+              I enjoy learning by building practical projects and improving my understanding of programming and computer
+              science.
             </p>
 
             <div class="about-ref-stats">
@@ -179,7 +199,7 @@
          ========================================================================== -->
     <section class="section" id="skills">
       <div class="container">
-        
+
         <div class="section-header reveal-on-scroll">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span> Technical Skills
@@ -202,30 +222,50 @@
               <div class="tech-chip"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML</div>
               <div class="tech-chip"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> CSS</div>
               <!-- Set 2 -->
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> CSS</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i>
+                Python</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i>
+                CSS</div>
               <!-- Set 3 -->
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> CSS</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i>
+                Python</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i>
+                CSS</div>
               <!-- Set 4 -->
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> CSS</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i>
+                Python</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i>
+                CSS</div>
               <!-- Set 5 -->
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> CSS</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i>
+                Python</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i>
+                CSS</div>
               <!-- Set 6 -->
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i> Python</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML</div>
-              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i> CSS</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-python" style="color: #38bdf8;"></i>
+                Python</div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-solid fa-database" style="color: #c084fc;"></i> SQL
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-html5" style="color: #f97316;"></i> HTML
+              </div>
+              <div class="tech-chip" aria-hidden="true"><i class="fa-brands fa-css3-alt" style="color: #38bdf8;"></i>
+                CSS</div>
             </div>
           </div>
         </div>
@@ -238,7 +278,7 @@
          ========================================================================== -->
     <section class="section" id="projects">
       <div class="container">
-        
+
         <div class="section-header reveal-on-scroll">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span> Portfolio Work
@@ -255,7 +295,7 @@
         <div class="scroll-row-container reveal-on-scroll delay-100">
           <div class="scroll-row-wrapper" id="projects-scroll-wrapper" aria-label="Projects Row">
             <div class="scroll-row-track projects-scroll-track" id="projects-scroll-track">
-              
+
               <!-- Project 01: AdaptIQ -->
               <article class="featured-project-card project-carousel-card">
                 <div class="project-card-inner">
@@ -265,7 +305,8 @@
                   </div>
                   <h3 class="project-title">AdaptIQ</h3>
                   <p class="project-desc">
-                    An adaptive web learning platform providing personalized quiz assessments and interactive study tools for students.
+                    An adaptive web learning platform providing personalized quiz assessments and interactive study
+                    tools for students.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -273,10 +314,12 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="collaborators.html" class="btn btn-secondary btn-sm">
@@ -295,7 +338,8 @@
                   </div>
                   <h3 class="project-title">CyberOptimus</h3>
                   <p class="project-desc">
-                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing indicators, and inspect files.
+                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing
+                    indicators, and inspect files.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">Python</span>
@@ -303,10 +347,12 @@
                     <span class="tech-tag">Web Security</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
@@ -322,7 +368,8 @@
                   </div>
                   <h3 class="project-title">Tech Manthan</h3>
                   <p class="project-desc">
-                    A college technical fest website facilitating event information, competition schedules, and online participant registration.
+                    A college technical fest website facilitating event information, competition schedules, and online
+                    participant registration.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -330,14 +377,46 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-primary btn-sm">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-secondary btn-sm">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="tech-manthan-collaborators.html" class="btn btn-secondary btn-sm">
                       <i class="fa-solid fa-users"></i> <span>Collaborators</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 04: Quiz Master -->
+              <article class="featured-project-card project-carousel-card">
+                <div class="project-card-inner">
+                  <div class="project-card-meta">
+                    <span class="project-number">04</span>
+                    <span class="project-category-pill">Interactive Quiz</span>
+                  </div>
+                  <h3 class="project-title">Quiz Master</h3>
+                  <p class="project-desc">
+                    An interactive quiz website designed for conducting technical and educational quizzes with a simple
+                    and engaging user experience.
+                  </p>
+                  <div class="project-tech-pills">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://vishwaspoojary.github.io/Quiz_Master/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm">
+                      <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://github.com/VishwasPoojary/Quiz_Master" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm">
+                      <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
                 </div>
@@ -352,7 +431,8 @@
                   </div>
                   <h3 class="project-title">AdaptIQ</h3>
                   <p class="project-desc">
-                    An adaptive web learning platform providing personalized quiz assessments and interactive study tools for students.
+                    An adaptive web learning platform providing personalized quiz assessments and interactive study
+                    tools for students.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -360,10 +440,12 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="collaborators.html" class="btn btn-secondary btn-sm" tabindex="-1">
@@ -381,7 +463,8 @@
                   </div>
                   <h3 class="project-title">CyberOptimus</h3>
                   <p class="project-desc">
-                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing indicators, and inspect files.
+                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing
+                    indicators, and inspect files.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">Python</span>
@@ -389,10 +472,12 @@
                     <span class="tech-tag">Web Security</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
@@ -407,7 +492,8 @@
                   </div>
                   <h3 class="project-title">Tech Manthan</h3>
                   <p class="project-desc">
-                    A college technical fest website facilitating event information, competition schedules, and online participant registration.
+                    A college technical fest website facilitating event information, competition schedules, and online
+                    participant registration.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -415,14 +501,46 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="tech-manthan-collaborators.html" class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-solid fa-users"></i> <span>Collaborators</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 04: Quiz Master (Set 2 clone) -->
+              <article class="featured-project-card project-carousel-card" aria-hidden="true">
+                <div class="project-card-inner">
+                  <div class="project-card-meta">
+                    <span class="project-number">04</span>
+                    <span class="project-category-pill">Interactive Quiz</span>
+                  </div>
+                  <h3 class="project-title">Quiz Master</h3>
+                  <p class="project-desc">
+                    An interactive quiz website designed for conducting technical and educational quizzes with a simple
+                    and engaging user experience.
+                  </p>
+                  <div class="project-tech-pills">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://vishwaspoojary.github.io/Quiz_Master/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
+                      <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://github.com/VishwasPoojary/Quiz_Master" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
+                      <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
                 </div>
@@ -437,7 +555,8 @@
                   </div>
                   <h3 class="project-title">AdaptIQ</h3>
                   <p class="project-desc">
-                    An adaptive web learning platform providing personalized quiz assessments and interactive study tools for students.
+                    An adaptive web learning platform providing personalized quiz assessments and interactive study
+                    tools for students.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -445,10 +564,12 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="collaborators.html" class="btn btn-secondary btn-sm" tabindex="-1">
@@ -466,7 +587,8 @@
                   </div>
                   <h3 class="project-title">CyberOptimus</h3>
                   <p class="project-desc">
-                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing indicators, and inspect files.
+                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing
+                    indicators, and inspect files.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">Python</span>
@@ -474,10 +596,12 @@
                     <span class="tech-tag">Web Security</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
@@ -492,7 +616,8 @@
                   </div>
                   <h3 class="project-title">Tech Manthan</h3>
                   <p class="project-desc">
-                    A college technical fest website facilitating event information, competition schedules, and online participant registration.
+                    A college technical fest website facilitating event information, competition schedules, and online
+                    participant registration.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -500,14 +625,46 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="tech-manthan-collaborators.html" class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-solid fa-users"></i> <span>Collaborators</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 04: Quiz Master (Set 3 clone) -->
+              <article class="featured-project-card project-carousel-card" aria-hidden="true">
+                <div class="project-card-inner">
+                  <div class="project-card-meta">
+                    <span class="project-number">04</span>
+                    <span class="project-category-pill">Interactive Quiz</span>
+                  </div>
+                  <h3 class="project-title">Quiz Master</h3>
+                  <p class="project-desc">
+                    An interactive quiz website designed for conducting technical and educational quizzes with a simple
+                    and engaging user experience.
+                  </p>
+                  <div class="project-tech-pills">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://vishwaspoojary.github.io/Quiz_Master/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
+                      <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://github.com/VishwasPoojary/Quiz_Master" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
+                      <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
                 </div>
@@ -522,7 +679,8 @@
                   </div>
                   <h3 class="project-title">AdaptIQ</h3>
                   <p class="project-desc">
-                    An adaptive web learning platform providing personalized quiz assessments and interactive study tools for students.
+                    An adaptive web learning platform providing personalized quiz assessments and interactive study
+                    tools for students.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -530,10 +688,12 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://vishwaspoojary.github.io/AdaptIQ/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com/VishwasPoojary/AdaptIQ" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="collaborators.html" class="btn btn-secondary btn-sm" tabindex="-1">
@@ -551,7 +711,8 @@
                   </div>
                   <h3 class="project-title">CyberOptimus</h3>
                   <p class="project-desc">
-                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing indicators, and inspect files.
+                    An AI-assisted cybersecurity platform designed to evaluate website security, detect phishing
+                    indicators, and inspect files.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">Python</span>
@@ -559,10 +720,12 @@
                     <span class="tech-tag">Web Security</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://cyberoptimus.onrender.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
@@ -577,7 +740,8 @@
                   </div>
                   <h3 class="project-title">Tech Manthan</h3>
                   <p class="project-desc">
-                    A college technical fest website facilitating event information, competition schedules, and online participant registration.
+                    A college technical fest website facilitating event information, competition schedules, and online
+                    participant registration.
                   </p>
                   <div class="project-tech-pills">
                     <span class="tech-tag">HTML</span>
@@ -585,14 +749,46 @@
                     <span class="tech-tag">JavaScript</span>
                   </div>
                   <div class="project-actions">
-                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
+                    <a href="https://vishwaspoojary.github.io/Tech-Manthan-6.0/" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-primary btn-sm" tabindex="-1">
                       <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
                     </a>
-                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
+                    <a href="https://github.com/VishwasPoojary/Tech-Manthan-6.0" target="_blank"
+                      rel="noopener noreferrer" class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                     <a href="tech-manthan-collaborators.html" class="btn btn-secondary btn-sm" tabindex="-1">
                       <i class="fa-solid fa-users"></i> <span>Collaborators</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Project 04: Quiz Master (Set 4 clone) -->
+              <article class="featured-project-card project-carousel-card" aria-hidden="true">
+                <div class="project-card-inner">
+                  <div class="project-card-meta">
+                    <span class="project-number">04</span>
+                    <span class="project-category-pill">Interactive Quiz</span>
+                  </div>
+                  <h3 class="project-title">Quiz Master</h3>
+                  <p class="project-desc">
+                    An interactive quiz website designed for conducting technical and educational quizzes with a simple
+                    and engaging user experience.
+                  </p>
+                  <div class="project-tech-pills">
+                    <span class="tech-tag">HTML</span>
+                    <span class="tech-tag">CSS</span>
+                    <span class="tech-tag">JavaScript</span>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://vishwaspoojary.github.io/Quiz_Master/" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-primary btn-sm" tabindex="-1">
+                      <span>Live Demo</span> <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                    <a href="https://github.com/VishwasPoojary/Quiz_Master" target="_blank" rel="noopener noreferrer"
+                      class="btn btn-secondary btn-sm" tabindex="-1">
+                      <i class="fa-brands fa-github"></i> <span>GitHub</span>
                     </a>
                   </div>
                 </div>
@@ -610,7 +806,7 @@
          ========================================================================== -->
     <section class="section" id="experience">
       <div class="container">
-        
+
         <div class="section-header reveal-on-scroll">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span> Experience
@@ -636,7 +832,8 @@
             <h3>Web Developer Intern</h3>
             <div class="exp-company">InAmigos Foundation (IAF) &bull; Social Impact Organisation</div>
             <p class="exp-desc">
-              Developing and maintaining responsive web interfaces for social impact initiatives. Building accessible UI components with clean HTML, CSS, and JavaScript, and optimizing layout consistency across devices.
+              Developing and maintaining responsive web interfaces for social impact initiatives. Building accessible UI
+              components with clean HTML, CSS, and JavaScript, and optimizing layout consistency across devices.
             </p>
             <div class="project-tech-pills" style="margin-bottom: 0;">
               <span class="tech-tag"><i class="fa-solid fa-code"></i> Web Development</span>
@@ -656,7 +853,7 @@
          ========================================================================== -->
     <section class="section" id="certifications">
       <div class="container">
-        
+
         <div class="section-header reveal-on-scroll">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span> Verified Credentials
@@ -670,7 +867,7 @@
         </div>
 
         <div class="certs-grid">
-          
+
           <!-- IBM AI Fundamentals -->
           <div class="cert-card glass-card reveal-on-scroll">
             <div class="cert-header">
@@ -684,7 +881,8 @@
             </div>
             <div class="cert-action">
               <span class="cert-status"><i class="fa-solid fa-circle-check"></i> Completed</span>
-              <a href="IBM_AI_Fundamentals_Certificate_HQ.png" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <a href="IBM_AI_Fundamentals_Certificate_HQ.png" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
                 <i class="fa-solid fa-eye"></i> View Credential
               </a>
             </div>
@@ -722,7 +920,8 @@
             </div>
             <div class="cert-action">
               <span class="cert-status"><i class="fa-solid fa-circle-check"></i> Completed</span>
-              <a href="python_for_data_science_certificate.png" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <a href="python_for_data_science_certificate.png" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
                 <i class="fa-solid fa-eye"></i> View Credential
               </a>
             </div>
@@ -741,7 +940,8 @@
             </div>
             <div class="cert-action">
               <span class="cert-status"><i class="fa-solid fa-circle-check"></i> Completed</span>
-              <a href="LifeLong Professional.png" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm">
+              <a href="LifeLong Professional.png" target="_blank" rel="noopener noreferrer"
+                class="btn btn-secondary btn-sm">
                 <i class="fa-solid fa-eye"></i> View Credential
               </a>
             </div>
@@ -757,7 +957,7 @@
          ========================================================================== -->
     <section class="section" id="education">
       <div class="container">
-        
+
         <div class="section-header reveal-on-scroll">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span> Education
@@ -812,7 +1012,7 @@
          ========================================================================== -->
     <section class="section" id="contact">
       <div class="container">
-        
+
         <div class="section-header reveal-on-scroll">
           <div class="eyebrow">
             <span class="eyebrow-dot"></span> Contact
@@ -829,7 +1029,7 @@
 
           <!-- Contact Details Cards -->
           <div class="contact-info-cards reveal-on-scroll">
-            
+
             <div class="contact-item-card glass-card">
               <div class="contact-item-icon">
                 <i class="fa-solid fa-location-dot"></i>
@@ -858,7 +1058,8 @@
               </div>
               <div>
                 <div class="contact-item-label">GitHub</div>
-                <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer" class="contact-item-val">
+                <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer"
+                  class="contact-item-val">
                   github.com/VishwasPoojary
                 </a>
               </div>
@@ -870,7 +1071,8 @@
               </div>
               <div>
                 <div class="contact-item-label">LinkedIn</div>
-                <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank" rel="noopener noreferrer" class="contact-item-val">
+                <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank"
+                  rel="noopener noreferrer" class="contact-item-val">
                   linkedin.com/in/vishwas-poojary
                 </a>
               </div>
@@ -879,11 +1081,9 @@
           </div>
 
           <!-- Working Formspree Contact Form -->
-          <form class="contact-form glass-card reveal-on-scroll delay-100" 
-                id="contact-form" 
-                action="https://formspree.io/f/xvkpzyyr" 
-                method="POST">
-            
+          <form class="contact-form glass-card reveal-on-scroll delay-100" id="contact-form"
+            action="https://formspree.io/f/xvkpzyyr" method="POST">
+
             <div class="form-row">
               <div class="form-group">
                 <label for="firstName" class="form-label">First Name</label>
@@ -902,12 +1102,14 @@
 
             <div class="form-group">
               <label for="subject" class="form-label">Subject</label>
-              <input type="text" id="subject" name="subject" class="form-input" placeholder="Project Discussion / Collaboration" required>
+              <input type="text" id="subject" name="subject" class="form-input"
+                placeholder="Project Discussion / Collaboration" required>
             </div>
 
             <div class="form-group">
               <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" class="form-textarea" placeholder="Tell me about your project, idea, or inquiry..." required></textarea>
+              <textarea id="message" name="message" class="form-textarea"
+                placeholder="Tell me about your project, idea, or inquiry..." required></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary" style="width: 100%;">
@@ -950,7 +1152,9 @@
     </div>
   </footer>
 
-  <!-- Interactive Script -->
+  <!-- Interactive Scripts -->
   <script src="js/script.js"></script>
+  <script src="js/effects.js"></script>
 </body>
+
 </html>

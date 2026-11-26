@@ -1,0 +1,230 @@
+/* ==========================================================================
+   EFFECTS.CSS - Advanced Visual Effects & Cinematic Interaction Layer
+   Vishwas J Portfolio
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Interactive Background Particle Canvas
+   -------------------------------------------------------------------------- */
+.bg-network-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.65;
+  transition: opacity 0.4s ease;
+}
+
+[data-theme="light"] .bg-network-canvas {
+  opacity: 0.45;
+}
+
+/* --------------------------------------------------------------------------
+   2. 3D Tilt & Specular Glare System
+   -------------------------------------------------------------------------- */
+.tilt-card {
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0.2, 1),
+              box-shadow 0.3s ease,
+              border-color 0.3s ease;
+  transform-style: preserve-3d;
+  position: relative;
+  will-change: transform;
+}
+
+.tilt-card:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7),
+              0 0 30px rgba(147, 51, 234, 0.2);
+}
+
+.specular-glare {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    circle 260px at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgba(255, 255, 255, 0.12),
+    rgba(168, 85, 247, 0.06) 45%,
+    transparent 80%
+  );
+  transition: opacity 0.35s ease;
+  z-index: 3;
+}
+
+.tilt-card:hover .specular-glare {
+  opacity: 1;
+}
+
+/* --------------------------------------------------------------------------
+   4. Magnetic Element Physics Transitions
+   -------------------------------------------------------------------------- */
+.magnetic-btn,
+.magnetic-pill {
+  transition: transform 0.22s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+  display: inline-flex;
+}
+
+/* --------------------------------------------------------------------------
+   5. Image Sheen & Cinematic Light Sweep
+   -------------------------------------------------------------------------- */
+.hero-photo-frame {
+  position: relative;
+}
+
+.hero-photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: linear-gradient(
+    135deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0.15) 48%,
+    rgba(56, 189, 248, 0.25) 52%,
+    transparent 65%
+  );
+  opacity: 0;
+  pointer-events: none;
+  z-index: 5;
+  transition: opacity 0.5s ease, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate(-40%, -40%) rotate(25deg);
+}
+
+.hero-photo-frame:hover::after {
+  opacity: 1;
+  transform: translate(40%, 40%) rotate(25deg);
+}
+
+/* --------------------------------------------------------------------------
+   6. Cyber HUD Status Pill (Easter Egg / System Status)
+   -------------------------------------------------------------------------- */
+.cyber-hud-badge {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  background: rgba(10, 12, 18, 0.92);
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  border-radius: 100px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6),
+              0 0 20px rgba(56, 189, 248, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #38bdf8;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  z-index: 999999;
+  opacity: 0;
+  transform: translateY(-15px) scale(0.95);
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.cyber-hud-badge.hud-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.cyber-hud-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: hudPulse 1.4s infinite alternate;
+}
+
+@keyframes hudPulse {
+  0% { transform: scale(0.85); opacity: 0.7; }
+  100% { transform: scale(1.2); opacity: 1; box-shadow: 0 0 14px #38bdf8; }
+}
+
+/* --------------------------------------------------------------------------
+   7. Page Load Stagger Entrance
+   -------------------------------------------------------------------------- */
+body.page-loaded .hero-content-col > *,
+body.page-loaded .hero-content > * {
+  animation: heroStaggerIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+body.page-loaded .hero-frame-wrapper,
+body.page-loaded .hero-profile-container {
+  animation: heroProfileFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes heroProfileFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes heroStaggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.page-loaded .hero-status-pill,
+body.page-loaded .hero-badge { animation-delay: 0.05s; }
+
+body.page-loaded .hero-name,
+body.page-loaded .hero-title { animation-delay: 0.12s; }
+
+body.page-loaded .hero-headline,
+body.page-loaded .hero-role { animation-delay: 0.20s; }
+
+body.page-loaded .hero-intro,
+body.page-loaded .hero-description { animation-delay: 0.28s; }
+
+body.page-loaded .hero-cta-group,
+body.page-loaded .hero-actions { animation-delay: 0.36s; }
+
+body.page-loaded .hero-social-row,
+body.page-loaded .hero-socials { animation-delay: 0.44s; }
+
+/* --------------------------------------------------------------------------
+   8. Reduced Motion & Performance Safeguards
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .bg-network-canvas {
+    display: none !important;
+  }
+  .tilt-card {
+    transform: none !important;
+  }
+  .specular-glare {
+    display: none !important;
+  }
+  .magnetic-btn,
+  .magnetic-pill {
+    transform: none !important;
+  }
+  .hero-photo-frame::after,
+  .hero-photo-wrapper::after {
+    display: none !important;
+  }
+  body.page-loaded .hero-content-col > *,
+  body.page-loaded .hero-content > * {
+    animation: none !important;
+  }
+}

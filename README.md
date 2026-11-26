@@ -20,6 +20,7 @@ interest in cybersecurity.
 - AdaptIQ
 - CyberOptimus
 - Tech Manthan
+- Quiz Master
 
 ## Certifications
 
