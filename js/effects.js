@@ -270,7 +270,7 @@
     if (prefersReducedMotion || isTouchDevice) return;
 
     const magneticElements = document.querySelectorAll(
-      '.btn-primary, .btn-secondary, .social-pill, .hero-social-pill, .theme-toggle, .back-to-top'
+      '.btn-primary, .btn-secondary, .hero-social-btn, .social-pill, .hero-social-pill, .theme-toggle, .back-to-top'
     );
 
     magneticElements.forEach((el) => {
@@ -327,7 +327,7 @@
     };
 
     // Double click logo trigger
-    const logo = document.querySelector('.nav-logo');
+    const logo = document.querySelector('.site-logo, .nav-logo');
     if (logo) {
       logo.addEventListener('dblclick', (e) => {
         e.preventDefault();

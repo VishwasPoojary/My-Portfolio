@@ -15,12 +15,17 @@
   <meta property="og:description"
     content="Portfolio of Vishwas J - Third-year BCA student building responsive web applications and practical software projects.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="images/vishwas_hero.png">
+  <meta property="og:image" content="images/vishwas-hero-studio.png">
 
   <title>Vishwas J | Aspiring Software Developer & BCA Student</title>
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -44,109 +49,119 @@
   </div>
 
   <!-- ==========================================================================
-       FLOATING GLASS NAVIGATION
+       SITE HEADER & PRIMARY NAVIGATION
        ========================================================================== -->
-  <header class="header-wrapper" id="header-wrapper">
-    <nav class="nav-container" aria-label="Main Navigation">
-      <a href="#home" class="nav-logo">
+  <header class="site-header" id="header-wrapper">
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+    <div class="header-inner">
+      <a href="#home" class="site-logo">
         Vishwas<span>.</span>
       </a>
 
-      <div class="nav-links" id="nav-links">
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#about" class="nav-link">About</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#experience" class="nav-link">Experience</a>
-        <a href="#certifications" class="nav-link">Certifications</a>
-        <a href="#education" class="nav-link">Education</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </div>
-
-      <div class="nav-actions">
-        <a href="#contact" class="btn-nav-cta">Let's Talk</a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+      <nav class="site-nav" aria-label="Primary">
+        <button
+          class="menu-button"
+          type="button"
+          popovertarget="site-menu"
+          popovertargetaction="toggle"
+          aria-controls="site-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          <span>Menu</span>
         </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="#home" class="nav-link active" aria-current="page">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#projects" class="nav-link">Projects</a></li>
+          <li><a href="#experience" class="nav-link">Experience</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button
+          type="button"
+          class="nav-search-btn"
+          commandfor="portfolio-search-dialog"
+          command="show-modal"
+          aria-label="Search portfolio"
+        >
+          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+        </button>
+        <a href="#contact" class="btn-nav-cta">
+          <span>Let&apos;s Talk</span>
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </a>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- Main Content -->
-  <main>
+  <main id="main-content" tabindex="-1">
 
     <!-- ==========================================================================
-         1. HERO SECTION
+         1. HERO SECTION (Transparent Cutout over Ambient Grid & Particle Canvas)
          ========================================================================== -->
-    <section class="hero section" id="home">
-      <div class="container hero-container-modern">
-
-        <!-- Left Column: Content & Actions -->
-        <div class="hero-content-col reveal-on-scroll">
-
-          <!-- Factual Status Pill -->
-          <div class="hero-status-pill">
-            <span class="status-indicator-dot"></span>
-            <span>Currently: BCA Student • Building Projects • Learning Software Development</span>
-          </div>
-
-          <!-- Main Visual Focus: Name -->
+    <section class="hero hero-editorial" id="home">
+      <div class="container hero-editorial-inner">
+        <div class="hero-content">
+          <p class="hero-eyebrow">
+            <span class="hero-eyebrow-line" aria-hidden="true"></span>
+            <span>HELLO, MY NAME IS</span>
+          </p>
           <h1 class="hero-name">Vishwas J</h1>
-
-          <!-- Professional Headline -->
-          <p class="hero-headline">
-            <span class="headline-gradient">Aspiring Software Developer &amp; Cybersecurity Enthusiast</span>
+          <p class="hero-role-headline">
+            Aspiring Software Developer &amp;<br>Cybersecurity Enthusiast
+          </p>
+          <p class="hero-intro-copy">
+            Third-year BCA student building responsive web applications and practical software projects.
           </p>
 
-          <!-- Honest Introduction -->
-          <p class="hero-intro">
-            Third-year BCA student building responsive web applications and practical software projects with a strong
-            focus on clean code and computer science fundamentals.
-          </p>
-
-          <!-- Primary & Secondary CTAs -->
-          <div class="hero-cta-group">
-            <a href="#projects" class="btn btn-primary btn-pill">
-              <span>View Projects</span>
-              <i class="fa-solid fa-arrow-right"></i>
-            </a>
-            <a href="#contact" class="btn btn-secondary btn-pill">
-              <span>Contact Me</span>
-            </a>
-          </div>
-
-          <!-- Authentic Meta & Social Links -->
-          <div class="hero-social-row">
-            <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer" class="social-pill"
-              aria-label="GitHub Profile">
-              <i class="fa-brands fa-github"></i> GitHub
-            </a>
-            <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank" rel="noopener noreferrer"
-              class="social-pill" aria-label="LinkedIn Profile">
-              <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-            </a>
-            <span class="social-pill">
-              <i class="fa-solid fa-location-dot" style="color: #c084fc;"></i> Kundapura, India
-            </span>
-          </div>
-
+          <ul class="hero-social-list" aria-label="Quick profile and location links">
+            <li>
+              <a href="https://github.com/VishwasPoojary" target="_blank" rel="noopener noreferrer"
+                class="hero-social-btn" aria-label="GitHub profile">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/vishwas-poojary-819846378/" target="_blank"
+                rel="noopener noreferrer" class="hero-social-btn" aria-label="LinkedIn profile">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:vishwaspoojary140@gmail.com" class="hero-social-btn"
+                aria-label="Send email to Vishwas J">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              </a>
+            </li>
+            <li>
+              <a href="#contact" class="hero-social-btn" aria-label="Location: Kundapura, India">
+                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+              </a>
+            </li>
+          </ul>
         </div>
 
-        <!-- Right Column: Framed Modern Portrait Stage -->
-        <div class="hero-visual-col reveal-on-scroll delay-100">
-          <div class="hero-frame-wrapper">
-            <div class="hero-frame-ambient-glow"></div>
-            <div class="hero-photo-frame">
-              <div class="hero-frame-corner corner-tl"></div>
-              <div class="hero-frame-corner corner-br"></div>
-              <img src="images/vishwas_profile.png?v=3" alt="Vishwas J - Aspiring Software Developer"
-                class="hero-portrait-img" width="820" height="1024" fetchpriority="high" loading="eager">
-            </div>
-          </div>
+        <div class="hero-media">
+          <picture>
+            <source srcset="images/vishwas-hero-cutout.webp" type="image/webp" width="713" height="710">
+            <img
+              src="images/vishwas-hero-cutout.png"
+              alt="Vishwas J in a navy blazer with purple studio rim lighting"
+              class="hero-bg-img"
+              width="713"
+              height="710"
+              fetchpriority="high"
+              loading="eager"
+            >
+          </picture>
         </div>
-
       </div>
     </section>
 
@@ -970,38 +985,117 @@
           </p>
         </div>
 
-        <div class="education-timeline">
+        <div class="edu-roadmap">
+          <svg class="edu-route-svg" viewBox="0 0 120 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+            <defs>
+              <linearGradient id="eduRouteGradient" gradientUnits="userSpaceOnUse" x1="60" y1="16" x2="60" y2="284">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+                <stop offset="12.69%" stop-color="#38bdf8" stop-opacity="0.95" />
+                <stop offset="50%" stop-color="#a855f7" stop-opacity="0.9" />
+                <stop offset="87.31%" stop-color="#9333ea" stop-opacity="0.72" />
+                <stop offset="100%" stop-color="#9333ea" stop-opacity="0" />
+              </linearGradient>
+              <linearGradient id="eduRouteGlowGrad" gradientUnits="userSpaceOnUse" x1="60" y1="16" x2="60" y2="284">
+                <stop offset="0%" stop-color="#38bdf8" stop-opacity="0" />
+                <stop offset="12.69%" stop-color="#38bdf8" stop-opacity="0.45" />
+                <stop offset="50%" stop-color="#a855f7" stop-opacity="0.38" />
+                <stop offset="87.31%" stop-color="#9333ea" stop-opacity="0.28" />
+                <stop offset="100%" stop-color="#9333ea" stop-opacity="0" />
+              </linearGradient>
+            </defs>
 
-          <!-- BCA -->
-          <div class="edu-timeline-item reveal-on-scroll">
-            <div class="edu-timeline-dot"></div>
-            <div class="edu-card glass-card">
-              <div class="edu-period">2024 &ndash; 2027 &bull; Currently pursuing</div>
-              <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
-              <div class="edu-institution">Dr. B.B. Hegde First Grade College, Kundapura</div>
-            </div>
-          </div>
+            <!-- Soft ambient aura along the journey route -->
+            <path
+              class="edu-route-aura"
+              d="M 36 16 L 36 50 C 36 90, 84 110, 84 150 C 84 190, 36 210, 36 250 L 36 284"
+              fill="none"
+              stroke="url(#eduRouteGlowGrad)"
+              stroke-width="10"
+              stroke-linecap="round"
+              vector-effect="non-scaling-stroke"
+            />
 
-          <!-- PUC -->
-          <div class="edu-timeline-item reveal-on-scroll delay-100">
-            <div class="edu-timeline-dot"></div>
-            <div class="edu-card glass-card">
-              <div class="edu-period">2022 &ndash; 2024 &bull; Score: 90.3%</div>
-              <h3 class="edu-degree">Pre-University Course (PUC)</h3>
-              <div class="edu-institution">SV Pre-University College, Gangolli</div>
-            </div>
-          </div>
+            <!-- Core glowing path line -->
+            <path
+              class="edu-route-line"
+              d="M 36 16 L 36 50 C 36 90, 84 110, 84 150 C 84 190, 36 210, 36 250 L 36 284"
+              fill="none"
+              stroke="url(#eduRouteGradient)"
+              stroke-width="2"
+              stroke-linecap="round"
+              vector-effect="non-scaling-stroke"
+            />
 
-          <!-- SSLC -->
-          <div class="edu-timeline-item reveal-on-scroll delay-150">
-            <div class="edu-timeline-dot"></div>
-            <div class="edu-card glass-card">
-              <div class="edu-period">Completed 2022 &bull; Score: 78.88%</div>
-              <h3 class="edu-degree">Secondary School Leaving Certificate (SSLC)</h3>
-              <div class="edu-institution">Stella Maris English Medium School, Gangolli</div>
-            </div>
-          </div>
+            <!-- Subtle traveling light waypoints along route -->
+            <path
+              class="edu-route-waypoints"
+              d="M 36 50 C 36 90, 84 110, 84 150 C 84 190, 36 210, 36 250"
+              fill="none"
+              stroke="rgba(233, 213, 255, 0.72)"
+              stroke-width="2.5"
+              stroke-dasharray="1.5 14"
+              stroke-linecap="round"
+              vector-effect="non-scaling-stroke"
+            />
+          </svg>
 
+          <ol class="edu-roadmap-list">
+
+            <!-- Stage 1: BCA (Latest) -->
+            <li class="edu-milestone edu-milestone--left edu-milestone--current">
+              <div class="edu-card-slot reveal-on-scroll">
+                <article class="edu-card glass-card">
+                  <div class="edu-card-top">
+                    <span class="edu-period">2024 &ndash; 2027</span>
+                    <span class="edu-badge edu-badge--active">Currently Pursuing</span>
+                  </div>
+                  <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+                  <p class="edu-institution">Dr. B.B. Hegde First Grade College, Kundapura</p>
+                </article>
+              </div>
+              <div class="edu-track-col" aria-hidden="true">
+                <span class="edu-connector"></span>
+                <span class="edu-node"></span>
+              </div>
+            </li>
+
+            <!-- Stage 2: PUC -->
+            <li class="edu-milestone edu-milestone--right">
+              <div class="edu-track-col" aria-hidden="true">
+                <span class="edu-connector"></span>
+                <span class="edu-node"></span>
+              </div>
+              <div class="edu-card-slot reveal-on-scroll delay-100">
+                <article class="edu-card glass-card">
+                  <div class="edu-card-top">
+                    <span class="edu-period">2022 &ndash; 2024</span>
+                    <span class="edu-badge">Score: 90.3%</span>
+                  </div>
+                  <h3 class="edu-degree">Pre-University Course (PUC)</h3>
+                  <p class="edu-institution">SV Pre-University College, Gangolli</p>
+                </article>
+              </div>
+            </li>
+
+            <!-- Stage 3: SSLC -->
+            <li class="edu-milestone edu-milestone--left">
+              <div class="edu-card-slot reveal-on-scroll delay-150">
+                <article class="edu-card glass-card">
+                  <div class="edu-card-top">
+                    <span class="edu-period">Completed 2022</span>
+                    <span class="edu-badge">Score: 78.88%</span>
+                  </div>
+                  <h3 class="edu-degree">Secondary School Leaving Certificate (SSLC)</h3>
+                  <p class="edu-institution">Stella Maris English Medium School, Gangolli</p>
+                </article>
+              </div>
+              <div class="edu-track-col" aria-hidden="true">
+                <span class="edu-connector"></span>
+                <span class="edu-node"></span>
+              </div>
+            </li>
+
+          </ol>
         </div>
 
       </div>
@@ -1135,26 +1229,57 @@
        FOOTER
        ========================================================================== -->
   <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-copy">
-        &copy; 2026 <strong>Vishwas J</strong>. Built with semantic modern HTML, CSS & JavaScript.
+    <div class="container footer-inner footer-inner--minimal">
+      <div class="footer-copy-stack">
+        <p class="footer-copyright">
+          &copy; 2026 <span class="footer-author">Vishwas J</span>. All Rights Reserved.
+        </p>
+        <p class="footer-credit">
+          Designed &amp; Developed by <span class="footer-credit-name">Vishwas J</span>
+        </p>
       </div>
-      <div class="footer-links">
-        <a href="#home" class="footer-link">Home</a>
-        <a href="#about" class="footer-link">About</a>
-        <a href="#skills" class="footer-link">Skills</a>
-        <a href="#projects" class="footer-link">Projects</a>
-        <a href="#contact" class="footer-link">Contact</a>
-      </div>
-      <button class="back-to-top" id="back-to-top" aria-label="Back to Top">
-        <i class="fa-solid fa-arrow-up"></i>
+      <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to Top">
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
       </button>
     </div>
   </footer>
 
+  <!-- Quick Portfolio Search Dialog -->
+  <dialog id="portfolio-search-dialog" class="portfolio-search-dialog" closedby="any" aria-labelledby="search-dialog-title">
+    <div class="search-dialog-header">
+      <h2 id="search-dialog-title" class="search-dialog-title">Quick Jump</h2>
+      <button type="button" class="search-dialog-close" commandfor="portfolio-search-dialog" command="close" aria-label="Close search">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+    </div>
+    <search>
+      <form method="dialog" class="search-dialog-form">
+        <label for="portfolio-search-input" class="search-dialog-label">Search sections, projects, skills, or credentials</label>
+        <input
+          id="portfolio-search-input"
+          name="q"
+          type="search"
+          class="search-dialog-input"
+          placeholder="Try AdaptIQ, Python, CyberOptimus, Contact..."
+          autocorrect="off"
+          autocapitalize="none"
+          spellcheck="false"
+          autocomplete="off"
+        >
+      </form>
+      <ul id="portfolio-search-results" class="search-dialog-results"></ul>
+      <p id="portfolio-search-empty" class="search-dialog-empty" hidden>No matching portfolio items found.</p>
+    </search>
+  </dialog>
+
   <!-- Interactive Scripts -->
-  <script src="js/script.js"></script>
-  <script src="js/effects.js"></script>
+  <script type="module">
+    if (!('commandForElement' in HTMLButtonElement.prototype)) {
+      import('https://esm.run/invokers-polyfill');
+    }
+  </script>
+  <script defer src="js/script.js"></script>
+  <script defer src="js/effects.js"></script>
 </body>
 
 </html>

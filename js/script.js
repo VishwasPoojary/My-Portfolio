@@ -7,12 +7,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* --- 1. CONDITIONAL POPOVER POLYFILL --- */
+  if (!Object.hasOwn(HTMLElement.prototype, 'popover')) {
+    const polyfill = document.createElement('script');
+    polyfill.src = 'https://unpkg.com/@oddbird/popover-polyfill@latest/dist/popover.min.js';
+    document.head.appendChild(polyfill);
+  }
 
-  /* --- 2. FLOATING GLASS HEADER & SCROLL TRACKING --- */
+  /* --- 2. RESPONSIVE SITE HEADER & POPOVER NAVIGATION --- */
   const headerWrapper = document.getElementById('header-wrapper');
+  const headerInner = headerWrapper ? headerWrapper.querySelector('.header-inner') : null;
+  const siteMenu = document.getElementById('site-menu');
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-link');
 
+  if (headerWrapper && headerInner && siteMenu) {
+    let lastMeasuredWidth = 0;
+
+    const updateNavLayout = (forceMeasure = false) => {
+      const currentWidth = headerWrapper.clientWidth;
+      const isCurrentlyWide = headerWrapper.classList.contains('is-wide');
+      if (!forceMeasure && !isCurrentlyWide && currentWidth <= lastMeasuredWidth) {
+        return;
+      }
+      lastMeasuredWidth = currentWidth;
+
+      const wasOpen = siteMenu.matches(':popover-open') || siteMenu.classList.contains(':popover-open');
+      headerWrapper.classList.add('is-measuring');
+      headerWrapper.classList.add('is-wide');
+      siteMenu.removeAttribute('popover');
+
+      const fitsInline = headerInner.scrollWidth <= headerInner.clientWidth;
+      if (!fitsInline) {
+        headerWrapper.classList.remove('is-wide');
+        siteMenu.setAttribute('popover', 'auto');
+        if (wasOpen && typeof siteMenu.showPopover === 'function') {
+          try {
+            siteMenu.showPopover();
+          } catch {
+            // Ignore if popover cannot be reopened during transition
+          }
+        }
+      }
+
+      requestAnimationFrame(() => {
+        headerWrapper.classList.remove('is-measuring');
+      });
+    };
+
+    updateNavLayout(true);
+    if ('ResizeObserver' in window) {
+      const navObserver = new ResizeObserver(() => updateNavLayout(false));
+      navObserver.observe(headerWrapper);
+      navObserver.observe(siteMenu);
+    } else {
+      window.addEventListener('resize', () => updateNavLayout(true));
+    }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => updateNavLayout(true));
+    }
+
+    // Close collapsed popover when selecting an anchor link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (!headerWrapper.classList.contains('is-wide') && typeof siteMenu.hidePopover === 'function') {
+          try {
+            siteMenu.hidePopover();
+          } catch {
+            // Ignore if already closed
+          }
+        }
+      });
+    });
+  }
+
+  /* --- 3. HEADER SCROLL TRACKING --- */
   const handleScroll = () => {
     const scrollY = window.scrollY;
 
@@ -24,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    if (sections.length === 0) return;
+
     let currentSection = '';
     sections.forEach(section => {
       const sectionTop = section.offsetTop - 140;
@@ -34,12 +106,22 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${currentSection}`) {
-        link.classList.add('active');
+    if (currentSection) {
+      const matchingLink = Array.from(navLinks).find(
+        link => link.getAttribute('href') === `#${currentSection}`
+      );
+      if (matchingLink) {
+        navLinks.forEach(link => {
+          const isCurrent = link === matchingLink;
+          link.classList.toggle('active', isCurrent);
+          if (isCurrent) {
+            link.setAttribute('aria-current', 'page');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
       }
-    });
+    }
   };
 
   let isTicking = false;
@@ -54,42 +136,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { passive: true });
 
   handleScroll();
-
-
-  /* --- 3. MOBILE HAMBURGER NAVIGATION DRAWER --- */
-  const hamburger = document.getElementById('hamburger');
-  const navLinksContainer = document.getElementById('nav-links');
-
-  if (hamburger && navLinksContainer) {
-    const toggleMenu = () => {
-      hamburger.classList.toggle('active');
-      navLinksContainer.classList.toggle('active');
-      document.body.style.overflow = navLinksContainer.classList.contains('active') ? 'hidden' : '';
-    };
-
-    hamburger.addEventListener('click', toggleMenu);
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinksContainer.classList.remove('active');
-        document.body.style.overflow = '';
-      });
-    });
-
-    // Close when tapping outside on mobile
-    document.addEventListener('click', (e) => {
-      if (
-        navLinksContainer.classList.contains('active') &&
-        !navLinksContainer.contains(e.target) &&
-        !hamburger.contains(e.target)
-      ) {
-        hamburger.classList.remove('active');
-        navLinksContainer.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-  }
 
 
   /* --- 4. INTERSECTION OBSERVER FOR SCROLL REVEALS --- */
@@ -340,5 +386,76 @@ document.addEventListener('DOMContentLoaded', () => {
   // Initialize for both Technologies (4 items/set) and Projects (4 items/set)
   initInteractiveRowScroll('tech-scroll-wrapper', 'tech-scroll-track', 4, 30);
   initInteractiveRowScroll('projects-scroll-wrapper', 'projects-scroll-track', 4, 28);
+
+  /* --- 9. QUICK JUMP PORTFOLIO SEARCH MODAL --- */
+  const searchDialog = document.getElementById('portfolio-search-dialog');
+  const searchInput = document.getElementById('portfolio-search-input');
+  const searchResults = document.getElementById('portfolio-search-results');
+  const searchEmpty = document.getElementById('portfolio-search-empty');
+  const searchBtn = document.querySelector('.nav-search-btn');
+
+  if (searchDialog && searchInput && searchResults && searchEmpty) {
+    const quickItems = [
+      { label: 'About Me — BCA Student (2024–2027)', tag: 'Section', href: '#about' },
+      { label: 'Technical Skills — Python, SQL, HTML, CSS', tag: 'Section', href: '#skills' },
+      { label: 'AdaptIQ — Adaptive Learning Platform', tag: 'Project', href: '#projects' },
+      { label: 'CyberOptimus — AI-Assisted Web Security', tag: 'Project', href: '#projects' },
+      { label: 'Tech Manthan — Event Web Portal', tag: 'Project', href: '#projects' },
+      { label: 'Quiz Master — Interactive Quiz Web App', tag: 'Project', href: '#projects' },
+      { label: 'Web Developer Intern — InAmigos Foundation', tag: 'Experience', href: '#experience' },
+      { label: 'AI Fundamentals — IBM SkillsBuild', tag: 'Credential', href: '#certifications' },
+      { label: 'Introduction to Cloud Computing — Infosys', tag: 'Credential', href: '#certifications' },
+      { label: 'Python for Data Science — SWAYAM NPTEL', tag: 'Credential', href: '#certifications' },
+      { label: 'Education — BCA, PUC, SSLC', tag: 'Section', href: '#education' },
+      { label: 'Contact & Send Message', tag: 'Section', href: '#contact' }
+    ];
+
+    const renderSearchResults = (query) => {
+      const q = query.trim().toLowerCase();
+      const filtered = q
+        ? quickItems.filter(item => `${item.label} ${item.tag}`.toLowerCase().includes(q))
+        : quickItems;
+
+      searchResults.replaceChildren();
+      searchEmpty.hidden = filtered.length > 0;
+
+      filtered.forEach(item => {
+        const li = document.createElement('li');
+        const link = document.createElement('a');
+        link.className = 'search-result-link';
+        link.href = item.href;
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = item.label;
+
+        const tagSpan = document.createElement('span');
+        tagSpan.className = 'search-result-tag';
+        tagSpan.textContent = item.tag;
+
+        link.append(textSpan, tagSpan);
+        link.addEventListener('click', () => searchDialog.close());
+        li.appendChild(link);
+        searchResults.appendChild(li);
+      });
+    };
+
+    renderSearchResults('');
+    searchInput.addEventListener('input', () => renderSearchResults(searchInput.value));
+
+    if (searchBtn && !('commandForElement' in HTMLButtonElement.prototype)) {
+      searchBtn.addEventListener('click', () => {
+        if (!searchDialog.open) searchDialog.showModal();
+      });
+      const closeBtn = searchDialog.querySelector('.search-dialog-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', () => searchDialog.close());
+      }
+    }
+
+    searchDialog.addEventListener('close', () => {
+      searchInput.value = '';
+      renderSearchResults('');
+    });
+  }
 
 });

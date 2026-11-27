@@ -71,37 +71,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   5. Image Sheen & Cinematic Light Sweep
-   -------------------------------------------------------------------------- */
-.hero-photo-frame {
-  position: relative;
-}
-
-.hero-photo-frame::after {
-  content: '';
-  position: absolute;
-  inset: -50%;
-  background: linear-gradient(
-    135deg,
-    transparent 35%,
-    rgba(255, 255, 255, 0.15) 48%,
-    rgba(56, 189, 248, 0.25) 52%,
-    transparent 65%
-  );
-  opacity: 0;
-  pointer-events: none;
-  z-index: 5;
-  transition: opacity 0.5s ease, transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: translate(-40%, -40%) rotate(25deg);
-}
-
-.hero-photo-frame:hover::after {
-  opacity: 1;
-  transform: translate(40%, 40%) rotate(25deg);
-}
-
-/* --------------------------------------------------------------------------
-   6. Cyber HUD Status Pill (Easter Egg / System Status)
+   5. Cyber HUD Status Pill (Easter Egg / System Status)
    -------------------------------------------------------------------------- */
 .cyber-hud-badge {
   position: fixed;
@@ -150,57 +120,26 @@
 }
 
 /* --------------------------------------------------------------------------
-   7. Page Load Stagger Entrance
+   6. Page Load Entrance (Keep hero visible immediately for instant LCP/FCP)
    -------------------------------------------------------------------------- */
-body.page-loaded .hero-content-col > *,
 body.page-loaded .hero-content > * {
-  animation: heroStaggerIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: heroStaggerSlide 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-body.page-loaded .hero-frame-wrapper,
-body.page-loaded .hero-profile-container {
-  animation: heroProfileFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) both;
-}
-
-@keyframes heroProfileFadeIn {
+@keyframes heroStaggerSlide {
   from {
-    opacity: 0;
-    transform: scale(0.94) translateY(16px);
+    transform: translateY(10px);
   }
   to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
-  }
-}
-
-@keyframes heroStaggerIn {
-  from {
-    opacity: 0;
-    transform: translateY(22px);
-  }
-  to {
-    opacity: 1;
     transform: translateY(0);
   }
 }
 
-body.page-loaded .hero-status-pill,
-body.page-loaded .hero-badge { animation-delay: 0.05s; }
-
-body.page-loaded .hero-name,
-body.page-loaded .hero-title { animation-delay: 0.12s; }
-
-body.page-loaded .hero-headline,
-body.page-loaded .hero-role { animation-delay: 0.20s; }
-
-body.page-loaded .hero-intro,
-body.page-loaded .hero-description { animation-delay: 0.28s; }
-
-body.page-loaded .hero-cta-group,
-body.page-loaded .hero-actions { animation-delay: 0.36s; }
-
-body.page-loaded .hero-social-row,
-body.page-loaded .hero-socials { animation-delay: 0.44s; }
+body.page-loaded .hero-eyebrow { animation-delay: 0.02s; }
+body.page-loaded .hero-name { animation-delay: 0.06s; }
+body.page-loaded .hero-role-headline { animation-delay: 0.1s; }
+body.page-loaded .hero-intro-copy { animation-delay: 0.14s; }
+body.page-loaded .hero-social-list { animation-delay: 0.18s; }
 
 /* --------------------------------------------------------------------------
    8. Reduced Motion & Performance Safeguards
@@ -219,11 +158,6 @@ body.page-loaded .hero-socials { animation-delay: 0.44s; }
   .magnetic-pill {
     transform: none !important;
   }
-  .hero-photo-frame::after,
-  .hero-photo-wrapper::after {
-    display: none !important;
-  }
-  body.page-loaded .hero-content-col > *,
   body.page-loaded .hero-content > * {
     animation: none !important;
   }

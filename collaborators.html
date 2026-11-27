@@ -16,6 +16,11 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap">
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
@@ -34,37 +39,46 @@
     <div class="ambient-grid"></div>
   </div>
 
-  <!-- Floating Glass Navigation -->
-  <header class="header-wrapper" id="header-wrapper">
-    <nav class="nav-container" aria-label="Main Navigation">
-      <a href="index.html#home" class="nav-logo">
+  <!-- Site Navigation -->
+  <header class="site-header site-header-solid" id="header-wrapper">
+    <a href="#main-content" class="skip-link visually-hidden">Skip to main content</a>
+    <div class="header-inner">
+      <a href="index.html#home" class="site-logo">
         Vishwas<span>.</span>
       </a>
 
-      <div class="nav-links" id="nav-links">
-        <a href="index.html#home" class="nav-link">Home</a>
-        <a href="index.html#about" class="nav-link">About</a>
-        <a href="index.html#skills" class="nav-link">Skills</a>
-        <a href="index.html#projects" class="nav-link active">Projects</a>
-        <a href="index.html#experience" class="nav-link">Experience</a>
-        <a href="index.html#certifications" class="nav-link">Certifications</a>
-        <a href="index.html#education" class="nav-link">Education</a>
-        <a href="index.html#contact" class="nav-link">Contact</a>
-      </div>
-
-      <div class="nav-actions">
-        <a href="index.html#contact" class="btn-nav-cta">Let's Talk</a>
-        <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+      <nav class="site-nav" aria-label="Primary">
+        <button
+          class="menu-button"
+          type="button"
+          popovertarget="site-menu"
+          popovertargetaction="toggle"
+          aria-controls="site-menu"
+        >
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+          <span>Menu</span>
         </button>
+
+        <ul id="site-menu" class="site-menu" popover="auto">
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#skills" class="nav-link">Skills</a></li>
+          <li><a href="index.html#projects" class="nav-link active" aria-current="page">Projects</a></li>
+          <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+          <li><a href="index.html#education" class="nav-link">Education</a></li>
+          <li><a href="index.html#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="index.html#contact" class="btn-nav-cta">Let's Talk</a>
       </div>
-    </nav>
+    </div>
   </header>
 
   <!-- Main Content -->
-  <main style="padding-top: calc(var(--nav-height) + 4rem);">
+  <main id="main-content" tabindex="-1" style="padding-top: calc(var(--nav-height) + 4rem);">
     <section class="section" id="collaborators">
       <div class="container">
         
@@ -201,6 +215,6 @@
   </footer>
 
   <!-- Script File -->
-  <script src="js/script.js"></script>
+  <script defer src="js/script.js"></script>
 </body>
 </html>
